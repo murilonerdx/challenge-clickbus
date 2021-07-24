@@ -13,11 +13,8 @@ import lombok.NoArgsConstructor;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity
 public class PlaceDTO {
-  @Id
-  @GeneratedValue(strategy = GenerationType.IDENTITY)
-  private Long id;
+
   @NotEmpty(message = "Enter the name of the place")
   private String name;
   @NotEmpty(message = "Enter a slug")
@@ -27,7 +24,7 @@ public class PlaceDTO {
   @NotEmpty(message = "Enter a state")
   private String state;
 
-  public PlaceDTO(Place obj){
+  public PlaceDTO(Place obj) {
     this.name = obj.getName();
     this.slug = obj.getSlug();
     this.city = obj.getCity();
@@ -36,7 +33,7 @@ public class PlaceDTO {
 
   /* Pra que Mapper ?
    * Aqui você transforma o DTO em uma entity também, porém eu usei mapper, mas caso necessario usar toEntity*/
-  public Place toEntity(){
+  public Place toEntity() {
     Place place = new Place();
     place.setState(this.state);
     place.setSlug(this.slug);
