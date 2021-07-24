@@ -10,6 +10,6 @@ public interface PlaceService {
   void delete(Place place);
   Place getById(Long id);
   List<PlaceDTO> getAll();
-  Place getByName(String name);
+  List<Place> getByName(String name);
 }
 

@@ -42,8 +42,8 @@ public class PlaceController {
 
 
   @GetMapping("/place")
-  public Place getPlaceByName(@RequestParam("name") String placeName) throws PlaceNotFound {
-    Place place = service.getByName(placeName);
+  public List<Place> getPlaceByName(@RequestParam("name") String placeName) throws PlaceNotFound {
+    List<Place> place = service.getByName(placeName);
     if (place == null) {
       throw new IllegalArgumentException("Place not exist");
     }

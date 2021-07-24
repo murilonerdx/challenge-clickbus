@@ -66,7 +66,7 @@ public class PlaceServiceImpl implements PlaceService {
   }
 
   @Override
-  public Place getByName(String name) {
+  public List<Place> getByName(String name) {
     try{
       return repository.getByName(name);
     }catch(IllegalArgumentException e){
