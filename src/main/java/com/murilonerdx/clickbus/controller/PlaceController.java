@@ -50,6 +50,11 @@ public class PlaceController {
     return place;
   }
 
+  @GetMapping("/{id}")
+  public Place getById(@PathVariable Long id){
+    return service.getById(id);
+  }
+
   @PostMapping
   @ResponseStatus(HttpStatus.CREATED)
   public Place createPlace(@RequestBody @Valid PlaceDTO place) {
