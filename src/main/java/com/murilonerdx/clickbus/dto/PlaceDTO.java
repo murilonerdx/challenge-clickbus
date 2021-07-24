@@ -34,7 +34,8 @@ public class PlaceDTO {
     this.state = obj.getState();
   }
 
-
+  /* Pra que Mapper ?
+   * Aqui você transforma o DTO em uma entity também, porém eu usei mapper, mas caso necessario usar toEntity*/
   public Place toEntity(){
     Place place = new Place();
     place.setState(this.state);
