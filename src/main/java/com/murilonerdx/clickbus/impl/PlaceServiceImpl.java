@@ -14,6 +14,7 @@ import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 @Service
 @AllArgsConstructor(onConstructor = @__(@Autowired))
 public class PlaceServiceImpl implements PlaceService {
@@ -28,10 +29,17 @@ public class PlaceServiceImpl implements PlaceService {
     return repository.save(place);
   }
 
+
+  /* Mapper
+   * Criando metodo para criar um novo modelo
+   * Transformando DTO em entity */
   private Place toModel(PlaceDTO placeDTO) {
     return new ModelMapper().map(placeDTO, Place.class);
   }
 
+  /* Verificação update
+   * Verificando se a entidade existe
+   * Transformando DTO em entity */
   @Override
   public Place update(Long id, PlaceDTO place) throws PlaceNotFound {
     Place entity = getById(id);
@@ -55,7 +63,7 @@ public class PlaceServiceImpl implements PlaceService {
 
   @Override
   public Place getById(Long id) {
-    return repository.findById(id).orElseThrow(()-> new IllegalArgumentException("Place id cant be null"));
+    return repository.findById(id).orElseThrow(()-> new PlaceNotFound("Place not found"));
   }
 
   @Override
