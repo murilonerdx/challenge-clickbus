@@ -1,5 +1,6 @@
 package com.murilonerdx.clickbus.dto;
 
+import com.murilonerdx.clickbus.entity.Place;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;

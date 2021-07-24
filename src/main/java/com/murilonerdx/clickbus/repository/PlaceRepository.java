@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface PlaceRepository extends JpaRepository<Place, Long> {
-  @Query("select p from Place p where p.name LIKE :name")
+  @Query("select p from Place p where lower(p.name) like lower(concat('%', :name,'%'))")
   Place getByName(@Param("name") String name);
 }
